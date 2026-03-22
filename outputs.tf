@@ -1,5 +1,5 @@
 output "ssm_role" {
-    value = ""
+    value = aws_iam_role.ssm_role.arn
 }
 
 output "ssm__agent_role" {
