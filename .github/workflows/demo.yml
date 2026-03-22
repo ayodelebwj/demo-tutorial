@@ -42,7 +42,7 @@ jobs:
           aws iam delete-instance-profile --instance-profile-name ssm_profile
 
 
-     # delete profile
+     # delete profile.
       - name: Terraform role
         run: |
           aws iam delete-role --role-name ssm_role
