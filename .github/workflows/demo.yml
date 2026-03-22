@@ -33,8 +33,8 @@ jobs:
       # Terraform Init + Apply
       - name: Terraform Apply
         run: |
-          terraform init
-          terraform apply -auto-approve --reconfigure
+          terraform init -reconfigure
+          terraform apply -auto-approve
 
       # Get EC2 Public EC2 INSTANCE ID from Terraform
       - name: Export Public ID
