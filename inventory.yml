@@ -2,7 +2,7 @@
     children:
       backend:
         hosts:
-          ${{ needs.terraform_infrastructure.outputs.backend_inst_id }}:
+          i-0ba4945e56143bceb:
             ansible_connection: amazon.aws.aws_ssm
             ansible_user: ubuntu
             ansible_aws_ssm_region: us-east-1
