@@ -41,17 +41,17 @@ jobs:
       # Get EC2 Public EC2 INSTANCE ID from Terraform
       - name: Export Public ID
         id: puid
-        run: echo "PUBLIC_EC2_INSTANCE_ID=$(terraform output -raw public_ec2_instance_id)" >> $GITHUB_OUTPUT
+        run: echo "PUBLIC_EC2_INSTANCE_ID=$(terraform output -json | jq -r '.public_ec2_instance_id.value)" >> $GITHUB_OUTPUT
 
       # Get EC2 Private EC2 INSTANCE ID from Terraform
       - name: Export Private ID
         id: prid
-        run: echo "PRIVATE_EC2_INSTANCE_ID=$(terraform output -raw private_ec2_instance_id)" >> $GITHUB_OUTPUT
+        run: echo "PRIVATE_EC2_INSTANCE_ID=$(terraform output -json | jq -r '.private_ec2_instance_id.value)" >> $GITHUB_OUTPUT
 
       # Get EC2 Private EC2 INSTANCE ID from Terraform
       - name: Export IAM Role
         id: tf
-        run: echo "ROLE_ARN=$(terraform output -raw role_arn)" >> $GITHUB_OUTPUT
+        run: echo "ROLE_ARN=$(terraform output -json | jq -r '.role_arn.value)" >> $GITHUB_OUTPUT
 
 
   ansible_configuration:
