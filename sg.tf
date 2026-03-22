@@ -1,5 +1,5 @@
 resource "aws_security_group" "public_sg" {
-  name        = "app-sg"
+  name        = "public-sg"
   description = "Allow app traffic"
   vpc_id      = data.aws_vpc.myvpc.id
 
@@ -33,7 +33,7 @@ resource "aws_security_group" "public_sg" {
 }
 
 resource "aws_security_group" "private_sg" {
-  name        = "app-sg"
+  name        = "private-sg"
   description = "Allow app traffic"
   vpc_id      = data.aws_vpc.myvpc.id
 
