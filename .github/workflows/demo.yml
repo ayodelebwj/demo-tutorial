@@ -30,17 +30,22 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
 
-
-      # delete profile
-      - name: Terraform role
+     # delete profile
+      - name: Terraform Apply
         run: |
-          aws iam delete-role --role-name ssm_role
+          aws iam remove-role-from-instance-profile --instance-profile-name ssm_profile --role-name ssm_role
+ 
 
       # delete profile
       - name: Terraform Apply
         run: |
           aws iam delete-instance-profile --instance-profile-name ssm_profile
 
+
+     # delete profile
+      - name: Terraform role
+        run: |
+          aws iam delete-role --role-name ssm_role
 
       # Terraform Init + Apply
       - name: Terraform Apply
