@@ -5,6 +5,7 @@ resource "aws_instance" "public_ec2" {
   associate_public_ip_address = true
   vpc_security_group_ids = [aws_security_group.public_sg.id]
   key_name = "myjob744-kp" 
+  
   user_data = base64encode(<<EOF
   #!/bin/bash
   set -e
